@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,41 +5,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DuoSee — Support</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-           max-width: 680px; margin: 40px auto; padding: 0 20px;
-           line-height: 1.6; color: #1a1a1a; background: #fff; }
-    h1 { color: #FF6B00; }
-    h2 { margin-top: 32px; }
-    a { color: #FF6B00; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0A0A0C;
+      color: #E8E8EA;
+      line-height: 1.65;
+      padding: 0 20px 80px;
+    }
+
+    .wrap { max-width: 640px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      padding: 72px 0 48px;
+    }
+
+    .logo {
+      width: 76px; height: 76px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #FF9F0A, #FF6B00);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      font-weight: 800;
+      color: #0A0A0C;
+      box-shadow: 0 8px 40px rgba(255, 107, 0, 0.35);
+      margin-bottom: 24px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      color: #9A9AA0;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #FF8A1E;
+      margin: 40px 0 16px;
+    }
+
+    .card {
+      background: #141418;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #FFFFFF;
+    }
+
+    .card p {
+      color: #B4B4BA;
+      font-size: 15px;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 48px;
+      padding: 32px;
+      background: linear-gradient(135deg, rgba(255,159,10,0.08), rgba(255,107,0,0.04));
+      border: 1px solid rgba(255,138,30,0.2);
+      border-radius: 20px;
+    }
+
+    .contact h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .contact p { color: #B4B4BA; font-size: 15px; }
+
+    a {
+      color: #FF8A1E;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      margin-top: 56px;
+      color: #55555C;
+      font-size: 13px;
+    }
+    footer a { color: #77777E; }
   </style>
 </head>
 <body>
-  <h1>DuoSee Support</h1>
-  <p>DuoSee is a dual-camera video recorder for iOS — record your front and
-     back camera at the same time.</p>
+  <div class="wrap">
+    <header>
+      <div class="logo">DS</div>
+      <h1>DuoSee Support</h1>
+      <p>Record your front and back camera at the same time.</p>
+    </header>
 
-  <h2>Frequently Asked Questions</h2>
+    <div class="section-label">Frequently Asked Questions</div>
 
-  <h3>Which iPhones are supported?</h3>
-  <p>DuoSee requires iPhone XS or newer, as dual-camera recording depends on
-     hardware available from that model onward.</p>
+    <div class="card">
+      <h3>Which iPhones are supported?</h3>
+      <p>DuoSee requires iPhone XS or newer, as dual-camera recording depends
+         on hardware available from that model onward.</p>
+    </div>
 
-  <h3>Where are my videos saved?</h3>
-  <p>Your recordings are saved locally to your device and can be exported to
-     your Photos library from the export screen.</p>
+    <div class="card">
+      <h3>Where are my videos saved?</h3>
+      <p>Your recordings are saved locally to your device and can be exported
+         to your Photos library from the export screen.</p>
+    </div>
 
-  <h3>What does DuoSee Pro include?</h3>
-  <p>Pro unlocks all layouts, 4K recording, unlimited recording duration, and
-     watermark-free exports.</p>
+    <div class="card">
+      <h3>What does DuoSee Pro include?</h3>
+      <p>Pro unlocks all layouts, 4K recording, unlimited recording duration,
+         and watermark-free exports.</p>
+    </div>
 
-  <h3>How do I restore my purchase?</h3>
-  <p>Open the Pro screen and tap "Restore Purchases."</p>
+    <div class="card">
+      <h3>How do I restore my purchase?</h3>
+      <p>Open the Pro screen and tap "Restore Purchases."</p>
+    </div>
 
-  <h3>How do I cancel my subscription?</h3>
-  <p>Go to Settings → your Apple ID → Subscriptions → DuoSee, and tap Cancel.</p>
+    <div class="card">
+      <h3>How do I cancel my subscription?</h3>
+      <p>Go to Settings → your Apple ID → Subscriptions → DuoSee, and tap
+         Cancel.</p>
+    </div>
 
-  <h2>Contact</h2>
-  <p>Need help? Email us at <a href="Syedshah.dev@gmail.com">Syedshah.dev@gmail.com</a>
-     and we'll get back to you.</p>
+    <div class="contact">
+      <h2>Still need help?</h2>
+      <p>Email us at <a href="mailto:Syedshah.dev@gmail.com">Syedshah.dev@gmail.com</a><br>
+         and we'll get back to you.</p>
+    </div>
+
+    <footer>
+      DuoSee &middot; <a href="privacy.html">Privacy Policy</a>
+    </footer>
+  </div>
 </body>
 </html>
