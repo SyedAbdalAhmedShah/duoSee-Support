@@ -1,162 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DuoSee — Support</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DuoSee — Record Both Cameras. One Take.</title>
+<meta name="description" content="DuoSee records your front and back camera at the same time. Capture the moment and your reaction in one take — exported ready for TikTok, Reels & Shorts.">
+<style>
+  :root {
+    --bg: #0A0A0C;
+    --card: #141418;
+    --border: rgba(255,255,255,0.07);
+    --amber1: #FF9F0A;
+    --amber2: #FF6B00;
+    --text: #ECECEE;
+    --muted: #9A9AA0;
+    --muted2: #B4B4BA;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 22px; }
+  a { color: var(--amber1); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0A0A0C;
-      color: #E8E8EA;
-      line-height: 1.65;
-      padding: 0 20px 80px;
-    }
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(18px);
+    background: rgba(10,10,12,0.72);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 900px; margin: 0 auto; padding: 14px 22px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; }
+  .nav-logo {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--amber1), var(--amber2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800; color: #0A0A0C;
+  }
+  .nav-links { display: flex; gap: 26px; font-size: 14px; }
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  @media (max-width: 600px){ .nav-links { display: none; } }
 
-    .wrap { max-width: 640px; margin: 0 auto; }
+  /* ---------- HERO ---------- */
+  .hero {
+    text-align: center;
+    padding: 90px 0 70px;
+    position: relative;
+  }
+  .hero::before {
+    content: ""; position: absolute; top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(255,107,0,0.18), transparent 65%);
+    filter: blur(20px); z-index: -1;
+  }
+  .hero-logo {
+    width: 104px; height: 104px; border-radius: 26px;
+    background: linear-gradient(135deg, var(--amber1), var(--amber2));
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 46px; font-weight: 800; color: #0A0A0C;
+    box-shadow: 0 12px 60px rgba(255,107,0,0.4);
+    margin-bottom: 30px;
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 800; letter-spacing: -1.5px;
+    line-height: 1.08;
+  }
+  .hero h1 .grad {
+    background: linear-gradient(120deg, var(--amber1), var(--amber2));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p {
+    color: var(--muted2); font-size: 19px; max-width: 540px;
+    margin: 22px auto 0;
+  }
+  .cta-row { margin-top: 38px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 15px 30px; border-radius: 14px; font-weight: 600; font-size: 16px;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-2px); }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--amber1), var(--amber2));
+    color: #0A0A0C;
+    box-shadow: 0 8px 30px rgba(255,107,0,0.35);
+  }
+  .btn-ghost { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+  .hero-note { margin-top: 18px; color: var(--muted); font-size: 13px; }
 
-    header {
-      text-align: center;
-      padding: 72px 0 48px;
-    }
+  /* ---------- SECTION ---------- */
+  section { padding: 64px 0; border-top: 1px solid var(--border); }
+  .section-label {
+    text-transform: uppercase; letter-spacing: 2px; font-size: 12px;
+    font-weight: 700; color: var(--amber2); text-align: center; margin-bottom: 10px;
+  }
+  .section-title {
+    text-align: center; font-size: 32px; font-weight: 700;
+    letter-spacing: -0.5px; margin-bottom: 44px;
+  }
 
-    .logo {
-      width: 76px; height: 76px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #FF9F0A, #FF6B00);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 34px;
-      font-weight: 800;
-      color: #0A0A0C;
-      box-shadow: 0 8px 40px rgba(255, 107, 0, 0.35);
-      margin-bottom: 24px;
-    }
+  /* ---------- FEATURES ---------- */
+  .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 640px){ .features { grid-template-columns: 1fr; } }
+  .feature {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 18px; padding: 26px;
+  }
+  .feature-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255,159,10,0.16), rgba(255,107,0,0.08));
+    border: 1px solid rgba(255,138,30,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 16px;
+  }
+  .feature h3 { font-size: 18px; margin-bottom: 7px; }
+  .feature p { color: var(--muted2); font-size: 15px; }
 
-    header h1 {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
+  /* ---------- PRICING ---------- */
+  .pricing { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 620px; margin: 0 auto; }
+  @media (max-width: 560px){ .pricing { grid-template-columns: 1fr; } }
+  .plan {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 20px; padding: 30px; text-align: center; position: relative;
+  }
+  .plan.featured { border-color: rgba(255,138,30,0.5); box-shadow: 0 10px 50px rgba(255,107,0,0.12); }
+  .badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--amber1), var(--amber2));
+    color: #0A0A0C; font-size: 12px; font-weight: 700; padding: 5px 14px;
+    border-radius: 20px; letter-spacing: 0.3px;
+  }
+  .plan .name { font-size: 15px; color: var(--muted); font-weight: 600; }
+  .plan .price { font-size: 38px; font-weight: 800; margin: 10px 0 2px; letter-spacing: -1px; }
+  .plan .per { color: var(--muted); font-size: 14px; }
+  .plan .trial { color: var(--amber1); font-size: 13px; font-weight: 600; margin-top: 12px; }
+  .pricing-note { text-align: center; color: var(--muted); font-size: 13px; margin-top: 24px; max-width: 560px; margin-left: auto; margin-right: auto; }
 
-    header p {
-      color: #9A9AA0;
-      margin-top: 10px;
-      font-size: 16px;
-    }
+  /* ---------- FAQ / SUPPORT ---------- */
+  .faq-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 22px 24px; margin-bottom: 12px;
+  }
+  .faq-card h3 { font-size: 16px; margin-bottom: 6px; }
+  .faq-card p { color: var(--muted2); font-size: 15px; }
+  .contact-box {
+    text-align: center; margin-top: 34px; padding: 32px;
+    background: linear-gradient(135deg, rgba(255,159,10,0.08), rgba(255,107,0,0.03));
+    border: 1px solid rgba(255,138,30,0.2); border-radius: 20px;
+  }
+  .contact-box h3 { font-size: 20px; margin-bottom: 8px; }
+  .contact-box p { color: var(--muted2); }
 
-    .section-label {
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #FF8A1E;
-      margin: 40px 0 16px;
-    }
+  /* ---------- PRIVACY ---------- */
+  .privacy-body { max-width: 700px; margin: 0 auto; }
+  .privacy-body h3 { font-size: 18px; margin: 26px 0 8px; color: #fff; }
+  .privacy-body p { color: var(--muted2); font-size: 15px; margin-bottom: 8px; }
+  .privacy-body ul { color: var(--muted2); font-size: 15px; margin: 0 0 8px 20px; }
+  .privacy-body li { margin-bottom: 5px; }
+  .updated { text-align: center; color: var(--muted); font-size: 13px; margin-bottom: 30px; }
 
-    .card {
-      background: #141418;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      padding: 22px 24px;
-      margin-bottom: 14px;
-    }
-
-    .card h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: #FFFFFF;
-    }
-
-    .card p {
-      color: #B4B4BA;
-      font-size: 15px;
-    }
-
-    .contact {
-      text-align: center;
-      margin-top: 48px;
-      padding: 32px;
-      background: linear-gradient(135deg, rgba(255,159,10,0.08), rgba(255,107,0,0.04));
-      border: 1px solid rgba(255,138,30,0.2);
-      border-radius: 20px;
-    }
-
-    .contact h2 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .contact p { color: #B4B4BA; font-size: 15px; }
-
-    a {
-      color: #FF8A1E;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    a:hover { text-decoration: underline; }
-
-    footer {
-      text-align: center;
-      margin-top: 56px;
-      color: #55555C;
-      font-size: 13px;
-    }
-    footer a { color: #77777E; }
-  </style>
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--border); padding: 40px 0 60px;
+    text-align: center; color: var(--muted);
+  }
+  .footer-brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+  .footer-links { display: flex; gap: 22px; justify-content: center; font-size: 14px; margin: 10px 0 16px; flex-wrap: wrap; }
+  .footer-links a { color: var(--muted); }
+  .footer-small { font-size: 12px; color: #55555C; }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">DS</div>
-      <h1>DuoSee Support</h1>
-      <p>Record your front and back camera at the same time.</p>
-    </header>
 
-    <div class="section-label">Frequently Asked Questions</div>
-
-    <div class="card">
-      <h3>Which iPhones are supported?</h3>
-      <p>DuoSee requires iPhone XS or newer, as dual-camera recording depends
-         on hardware available from that model onward.</p>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand"><span class="nav-logo">DS</span> DuoSee</div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#support">Support</a>
+      <a href="#privacy">Privacy</a>
     </div>
-
-    <div class="card">
-      <h3>Where are my videos saved?</h3>
-      <p>Your recordings are saved locally to your device and can be exported
-         to your Photos library from the export screen.</p>
-    </div>
-
-    <div class="card">
-      <h3>What does DuoSee Pro include?</h3>
-      <p>Pro unlocks all layouts, 4K recording, unlimited recording duration,
-         and watermark-free exports.</p>
-    </div>
-
-    <div class="card">
-      <h3>How do I restore my purchase?</h3>
-      <p>Open the Pro screen and tap "Restore Purchases."</p>
-    </div>
-
-    <div class="card">
-      <h3>How do I cancel my subscription?</h3>
-      <p>Go to Settings → your Apple ID → Subscriptions → DuoSee, and tap
-         Cancel.</p>
-    </div>
-
-    <div class="contact">
-      <h2>Still need help?</h2>
-      <p>Email us at <a href="mailto:Syedshah.dev@gmail.com">Syedshah.dev@gmail.com</a><br>
-         and we'll get back to you.</p>
-    </div>
-
-    <footer>
-      DuoSee &middot; <a href="privacy.html">Privacy Policy</a>
-    </footer>
   </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-logo">DS</div>
+    <h1>Record both cameras.<br><span class="grad">One take.</span></h1>
+    <p>DuoSee films your front and back camera at the same time — capture the moment and your reaction, ready for TikTok, Reels &amp; Shorts.</p>
+    <div class="cta-row">
+      <a href="#" class="btn btn-primary">⬇️ Download on the App Store</a>
+      <a href="#features" class="btn btn-ghost">See features</a>
+    </div>
+    <div class="hero-note">Requires iPhone XS or newer · Free to use</div>
+  </div>
+</header>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap">
+    <div class="section-label">Why DuoSee</div>
+    <h2 class="section-title">Everything in one take</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🎥</div>
+        <h3>Dual recording</h3>
+        <p>Front and back cameras at once, with a live picture-in-picture preview as you film.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔄</div>
+        <h3>Your layout</h3>
+        <p>Picture-in-picture, split screen, stacked — switch the layout to match your style.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📱</div>
+        <h3>Export presets</h3>
+        <p>Perfectly sized for TikTok, Reels, Shorts or square — exported in a single tap.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✂️</div>
+        <h3>Trim &amp; go</h3>
+        <p>Cut your clip right in the app before you export. No extra editing apps needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-label">DuoSee Pro</div>
+    <h2 class="section-title">Unlock the full studio</h2>
+    <div class="pricing">
+      <div class="plan">
+        <div class="name">Monthly</div>
+        <div class="price">£2.99</div>
+        <div class="per">per month</div>
+      </div>
+      <div class="plan featured">
+        <div class="badge">SAVE 50%</div>
+        <div class="name">Yearly</div>
+        <div class="price">£17.99</div>
+        <div class="per">per year</div>
+        <div class="trial">7-day free trial</div>
+      </div>
+    </div>
+    <p class="pricing-note">Pro unlocks all layouts, 4K recording at 60fps, unlimited duration and watermark-free exports. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the period. Manage or cancel anytime in your Apple ID settings.</p>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section id="support">
+  <div class="wrap">
+    <div class="section-label">Support</div>
+    <h2 class="section-title">Frequently asked questions</h2>
+    <div class="faq-card">
+      <h3>Which iPhones are supported?</h3>
+      <p>DuoSee requires iPhone XS or newer, as dual-camera recording depends on hardware available from that model onward.</p>
+    </div>
+    <div class="faq-card">
+      <h3>Where are my videos saved?</h3>
+      <p>Your recordings are saved locally to your device and can be exported to your Photos library from the export screen.</p>
+    </div>
+    <div class="faq-card">
+      <h3>What does DuoSee Pro include?</h3>
+      <p>Pro unlocks all layouts, 4K recording, unlimited recording duration, and watermark-free exports.</p>
+    </div>
+    <div class="faq-card">
+      <h3>How do I restore my purchase?</h3>
+      <p>Open the Pro screen and tap “Restore Purchases.”</p>
+    </div>
+    <div class="faq-card">
+      <h3>How do I cancel my subscription?</h3>
+      <p>Go to Settings → your Apple ID → Subscriptions → DuoSee, and tap Cancel.</p>
+    </div>
+    <div class="contact-box">
+      <h3>Still need help?</h3>
+      <p>Email us at <a href="mailto:Syedshah.dev@gmail.com">Syedshah.dev@gmail.com</a> and we’ll get back to you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-label">Legal</div>
+    <h2 class="section-title">Privacy Policy</h2>
+    <div class="privacy-body">
+      <p class="updated">Last updated: 16 July 2026</p>
+
+      <p>DuoSee (“the app”, “we”, “us”) is committed to protecting your privacy. This policy explains what the app accesses and how your information is handled. In short: <strong>your videos and photos stay on your device.</strong></p>
+
+      <h3>Camera and Microphone</h3>
+      <p>DuoSee uses your device’s cameras and microphone to record dual-camera videos and photos. This capture happens entirely on your device. We do not access, collect, transmit, or store your camera or microphone input on any server.</p>
+
+      <h3>Photos Library</h3>
+      <p>When you export a video or photo, DuoSee saves it to your device’s Photos library with your permission. We do not read, upload, or access other content in your library.</p>
+
+      <h3>Your Content</h3>
+      <p>All recordings and exports created with DuoSee are stored locally on your device. Your content is never uploaded to us and is never shared with third parties by the app.</p>
+
+      <h3>Subscriptions and Purchases</h3>
+      <p>DuoSee offers an optional Pro subscription. Purchases are processed by Apple through the App Store. To manage subscriptions and unlock Pro features across your devices, we use RevenueCat, a subscription management provider. For this purpose, a random, anonymous identifier and your purchase/transaction status may be processed. This information is used only to deliver the features you paid for. We do not receive your name, email, or Apple ID, and we do not use this data for advertising.</p>
+      <ul>
+        <li>Apple’s handling of purchases is covered by Apple’s Privacy Policy.</li>
+        <li>RevenueCat’s handling of subscription data is covered by RevenueCat’s Privacy Policy.</li>
+      </ul>
+
+      <h3>Data We Do Not Collect</h3>
+      <p>DuoSee does not collect your personal information, does not track you across other apps or websites, and does not sell your data. There are no third-party advertising trackers in the app.</p>
+
+      <h3>Children’s Privacy</h3>
+      <p>DuoSee is not directed at children under 13 and does not knowingly collect personal information from them.</p>
+
+      <h3>Changes to This Policy</h3>
+      <p>We may update this policy from time to time. Any changes will be posted on this page with an updated date above.</p>
+
+      <h3>Contact</h3>
+      <p>Questions about this policy? Email <a href="mailto:Syedshah.dev@gmail.com">Syedshah.dev@gmail.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-brand"><span class="nav-logo">DS</span> DuoSee</div>
+    <div class="footer-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#support">Support</a>
+      <a href="#privacy">Privacy</a>
+    </div>
+    <div class="footer-small">© 2026 DuoSee. All rights reserved.</div>
+  </div>
+</footer>
+
 </body>
 </html>
